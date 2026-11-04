@@ -1,0 +1,105 @@
+class Program
+
+{
+
+    static void Main(string[] args)
+
+    {
+
+        Box<string> myBox = new Box<string>();
+
+        myBox.Put("Hi");
+
+        Console.WriteLine(myBox.Get());
+
+
+
+        Box<int> intBox1 = new Box<int>();
+
+        intBox1.Put(42);
+
+        Console.WriteLine(intBox1.Get());
+
+
+
+
+
+        int num1 = 10;
+
+        int num2 = 20;
+
+        Console.WriteLine($"do cean {num1} , {num2}");
+
+        Utils.Swap(ref num1, ref num2);
+
+        Console.WriteLine($"После cean {num1} , {num2}");
+
+
+
+
+
+
+
+        string str1 = "one";
+
+        string str2 = "two";
+
+        Console.WriteLine($"do cean {str1} , {str2}");
+
+        Utils.Swap(ref str1, ref str2);
+
+        Console.WriteLine($"После cean {str1} , {str2}");
+
+
+
+
+
+
+
+        Pair<int, string> myPair = new Pair<int, string>(5, "Hi");
+
+        Console.WriteLine($"Первое значение {myPair.V1}, второе значение {myPair.V2}");
+
+    }
+
+}
+
+
+
+public class Box<T>
+{
+    private T item5;
+
+    public void Put(T item)
+    {
+        item5 = item;
+    }
+
+    public T Get()
+    {
+        return item5;
+    }
+
+}
+
+public static class Utils
+{
+    static public void Swap<T>(ref T a, ref T b)
+    {
+        T box1 = a;
+        a = b;
+        b = box1;
+    }
+}
+
+public class Pair<T1, T2>
+{
+    public T1 V1 { get; set; }
+    public T2 V2 { get; set; }
+
+    public Pair(T1 v1, T2 v2)
+    {
+        this.V1 = v1;
+        this.V2 = v2;
+    }
+}
