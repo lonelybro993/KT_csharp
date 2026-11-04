@@ -1,0 +1,199 @@
+class Program
+{
+    static void Main()
+    {
+        Book book1 = new Book();
+        book1.Title = "ляля";
+        book1.Pages = 400;
+        book1.Printinfo();
+
+
+        Book book2 = new Book();
+        book2.Title = "ляfhf";
+        book2.Pages = 300;
+        book2.Printinfo();
+
+        Reassing( book1);
+        
+        ChangeBOOktitle(book1);
+
+
+        REstangle treugol = new REstangle();
+        treugol.Width = 100;
+        treugol.Height = 50;
+
+        Console.WriteLine("S(treugol): " + treugol.AREA  );
+
+
+        Student student1 = new Student();
+        student1.name = "Test";
+        student1.Grade = 3;
+        student1.Print();
+}
+
+static void Reassing(Book b)
+    {
+        Book book999 = new Book();
+        book999.Title = "мед";
+        book999.Pages = 999;
+        b = book999;
+        Console.WriteLine("Книга-метод: " + b.Title + ", СТР:" + b.Pages);
+    }
+
+    static void ChangeBOOktitle(Book b)
+    {
+        b.Title = " ХАХАХ изменил";
+        Console.WriteLine("Книга-метод: " + b.Title + ", СТР:" + b.Pages);
+    }
+}
+
+
+
+public class Book
+{
+    public string Title;
+
+    private int _pages;
+
+    public int Pages
+    {
+
+        get { return _pages; }
+        set
+        {
+            if (value >= 1)
+            {
+                _pages = value;
+
+            }
+            else
+            {
+                _pages = 1;
+                Console.WriteLine("Ошибка");
+            }
+        }
+    }
+
+
+    public void Printinfo()
+    {
+        Console.WriteLine("НАзвание:  " + Title + ", Стрвниц -  " + Pages);
+
+    }
+
+
+
+    
+
+
+    
+
+   
+}
+
+
+
+
+public class  REstangle
+{
+    private int _width;
+    private int _height;
+
+
+
+    public int Width
+    {
+        get { return _width; }
+
+        set
+        {
+
+
+            if (value >= 1)
+            {
+                _width = value;
+
+            }
+            else
+            {
+                Console.WriteLine("ОшибКА!!!");
+                _width = 1; 
+            }
+
+        }
+   
+    }
+
+
+
+    public int Height
+    {
+        get { return _height; }
+
+        set
+        {
+
+
+            if (value >= 1)
+            {
+                _height = value;
+
+            }
+            else
+            {
+                Console.WriteLine("ОшибКА!!!");
+                _height = 1;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+    public int AREA
+{  get { return _width * _height; } 
+
+      
+   
+    }
+
+
+
+
+
+
+}
+
+
+
+public class Student
+{
+    public string name;
+    private int _grade;
+    public int Grade
+    {
+        get { return _grade; }
+        set 
+        { if(value >= 1 && value < 6)
+            {  _grade = value; }
+             else { Console.WriteLine("ЧИсло не входит в диапозон"); }       
+       
+                    
+              
+                    
+        }
+    }
+
+    public void Print()
+    {
+         Console.WriteLine("СТудент: " + name + ", Оцкнка: " + Grade);
+    }
+
+
+
+
+}
