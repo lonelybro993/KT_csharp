@@ -1,0 +1,41 @@
+unsafe
+{
+
+
+    int[] num = [1, 2, 3, 4, 5];
+    int x = 50;
+    
+    fixed (int* ptr = num)
+    {
+
+        //Console.WriteLine(*ptr+1);
+
+        int* ptr2 = ptr;
+
+        for (int i = 0; i < num.Length; i++) 
+        { Console.WriteLine(*(ptr2+i)+10);  }
+    
+
+
+    }
+
+
+    
+  
+    Console.WriteLine($"X ДО: {x} ");
+    int* ptr3 = &x;
+    int** ptr4 = &ptr3;
+    **ptr4 = 999;
+    Console.WriteLine($" X после: {x} ");
+    Console.WriteLine($"Адресс переменной: {(ulong)&x}");
+    Console.WriteLine($"Адресс указателя {(ulong)&ptr3}");
+    
+
+
+
+
+
+
+
+
+}
